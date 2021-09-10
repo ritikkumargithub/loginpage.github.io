@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background: #03a9f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+body.active{
+    background: #fa374b;
+}
+.container{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    
+}
+.main{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+}
+.main .box{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     flex-direction: column; 
+}
+.main .box h2{
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.main .box button{
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
+.formBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+.formBox.active{
+   left: 50%;
+}
+.formBox .form{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+}
+.formBox .signinForm{
+  transition-delay: 0.25s;
+}
+.formBox.active .signinForm{
+   left: -100%;
+   transition-delay: 0s;
+}
+.formBox .signupForm{
+    left: 100%;
+    transition-delay: 0s;
+}
+.formBox.active .signupForm{
+    left: 0;
+    transition-delay: 0.25s;
+}
+.formBox .form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formBox .form form h3{
+    font-size: 1.5em;
+    color: rgb(61, 61, 61);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.formBox .form form input{
+    width: 100%;
+    margin-bottom:20px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border: 2px solid #333;
+}
+.formBox .form form input:hover{
+    border: 2px solid #03a9f4;
+    
+}
+.formBox .form form input[type="submit"]{
+    background: #03a9f4;
+    border: none;
+    color: #fff;
+    max-width: 100px;
+    cursor: pointer;
+}
+.formBox .form form .forgot{
+    color: rgb(77, 75, 75);
+
+}
+.formBox.active .signupForm  input[type="submit"]{
+    background: #fa374b;
+    border: none;
+    color: #fff;
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.formBox.active .signupForm  input[type="text"]:hover{
+    border: 2px solid #fa374b;   
+}
+.formBox.active .signupForm  input[type="email"]:hover{
+    border: 2px solid #fa374b;   
+}
+.formBox.active .signupForm  input[type="password"]:hover{
+    border: 2px solid #fa374b;   
+}
+
+@media (max-width:991px) {
+    .container{
+        max-width: 400px;
+        height: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .main{
+        top: 0;
+        height: 100%;
+    }
+    .formBox{
+        width: 100%;
+        height: 500px;
+        top: 0;
+        box-shadow: none;
+    }
+    .main .box{
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        bottom: 0;
+    }
+    .box.signin{
+        top: 0;
+    }
+    .formBox.active{
+        left: 0;
+        top: 150px;
+    }
+}
